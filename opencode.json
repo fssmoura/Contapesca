@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "netlify": {
+      "type": "local",
+      "command": ["npx", "-y", "@netlify/mcp"],
+      "enabled": true,
+      "environment": {
+        "NETLIFY_PERSONAL_ACCESS_TOKEN": "{file:.netlify-token}"
+      }
+    }
+  }
+}

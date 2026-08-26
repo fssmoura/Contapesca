@@ -9,6 +9,7 @@ desktop.ini
 
 # Netlify
 .netlify/
+.netlify-token
 
 # Node (in case we add tooling later)
 node_modules/
