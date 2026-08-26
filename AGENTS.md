@@ -31,17 +31,20 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 ├── AGENTS.md
 ├── .gitignore
 ├── netlify.toml            # Netlify config (headers, cache rules)
-├── index.html              # Placeholder "em construção" page
+├── index.html              # Home page
+├── contactos.html          # Contact page
+├── styles/
+│   └── main.css            # All styles (tokens, base, components, pages)
+├── scripts/
+│   └── main.js             # Nav, language toggle, form validation, reveal
 └── assets/
     ├── favicon.png
-    ├── full-logo.png
-    ├── short-logo.png
-    └── animation.gif
+    ├── full-logo.png       # Icon only (yellow interlocking brackets)
+    ├── short-logo.png      # Icon + "ContaPesca" wordmark
+    └── icon-lines.svg      # Line-art version of the icon, used in the hero animation
 ```
 
-The site has not been built yet — `index.html` is a temporary placeholder so Netlify has something to deploy.
-
-**Rule:** do not invent folders or split files preemptively. Add a new file/folder only when there is a concrete reason (e.g. a second page, or CSS large enough to warrant splitting). Update this section whenever the layout changes.
+**Rule:** do not invent folders or split files preemptively. Split `main.css` or `main.js` into smaller files only when they grow past ~500 lines or when a page introduces genuinely page-specific logic worth isolating. Update this section whenever the layout changes.
 
 ## Brand
 
@@ -86,7 +89,7 @@ Additional design tokens (typography, spacing, elevations) will be defined once 
 - No blocking third-party scripts.
 - Target Lighthouse ≥ 95 across the board.
 
-## Contact form (planned)
+## Contact form
 
 - Handled by Netlify Forms.
 - `<form name="contacto" data-netlify="true">` + hidden `form-name` input.
@@ -112,6 +115,26 @@ Additional design tokens (typography, spacing, elevations) will be defined once 
   - `refactor: extract card component styles`
 - One logical change per commit.
 - Never commit secrets.
+
+## Working with the maintainer
+
+- **Never publish invented facts.** Do not put any company data (NIFs, addresses, phone numbers, email addresses, statistics, dates, names, titles) on the site unless it was explicitly supplied by the maintainer or copied verbatim from a source the maintainer designated as canonical (the original Google Sites screenshots, provided LinkedIn URL, etc.). If a piece of factual content is missing, leave it out or leave a clearly-marked placeholder — never guess.
+- **Use existing copy verbatim.** The original Google Sites version is the source of truth for the site's text. Rewrites and improvements come later, only when the maintainer asks. Match phrasing, headings and CTAs from the original unless the maintainer says otherwise.
+- **When in doubt about content, ask before writing.** A short question is cheaper than a wrong claim on a live site.
+- **Verify visual/reference material before implementing.** If the maintainer shares an animation, screenshot or reference, study it carefully. Ask if the intended interpretation is unclear rather than guessing.
+- **Never run `git add`, `git commit`, or `git push` without explicit approval.** File edits are fine; git operations are not. Wait for the maintainer to say "commit" / "push" / equivalent before touching git state.
+- **Never invent structure ahead of need.** Do not create folders, files, or scaffolding just because they might be useful later. Add them only when there is a concrete, current reason.
+- **Do not over-explain internals.** When the maintainer asks a practical question, answer it directly. Don't unfold implementation details unless asked.
+- **One step at a time.** For multi-step processes (deploys, DNS, configuration), give one action at a time, wait for confirmation, then proceed. Do not batch instructions the maintainer hasn't asked for.
+- **Match the maintainer's pace and scope.** If unsure whether to expand a task, ask before expanding.
+- **Ask before destructive actions.** File deletions, git resets, force pushes, dependency changes — always confirm first.
+- **Stop when the maintainer says stop.** If the maintainer signals a change is good or asks you to hold, do not keep tweaking, polishing, or adding follow-up work — even if you spot improvements. Wait for the next instruction.
+
+## Asset naming (repo-specific)
+
+- `assets/full-logo.png` — the **icon only** (two interlocking angular brackets in yellow).
+- `assets/short-logo.png` — icon **plus** the "ContaPesca" wordmark.
+- Names are inverted from what the words might suggest; use them accordingly.
 
 ## Before making changes
 
