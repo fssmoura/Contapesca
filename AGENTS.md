@@ -26,35 +26,22 @@ Vanilla static site — no build step, no framework, no package manager.
 
 ## Repository layout
 
+Current state of the repo:
+
 ```
 /
-├── index.html              # Home page
-├── contactos.html          # Contact page
-├── assets/                 # Logos, favicon, imagery
-│   ├── favicon.png
-│   ├── full-logo.png
-│   ├── short-logo.png
-│   └── animation.gif
-├── styles/
-│   ├── tokens.css          # Design tokens (colors, spacing, type)
-│   ├── base.css            # Reset, typography, utilities
-│   ├── components.css      # Nav, footer, buttons, cards, form
-│   ├── home.css            # Home-page-specific styles
-│   └── contactos.css       # Contact-page-specific styles
-├── scripts/
-│   ├── main.js             # Nav, scroll effects, reveal animations
-│   ├── i18n.js             # PT/EN translation engine
-│   └── contact-form.js     # Client-side form validation/UX
-├── locales/
-│   ├── pt.json             # Portuguese strings (default)
-│   └── en.json             # English strings
-├── netlify.toml            # Netlify config (headers, redirects)
-├── robots.txt
-├── sitemap.xml
-└── README.md
+├── AGENTS.md               # This file
+├── index.html              # Placeholder home page (to be rebuilt)
+├── netlify.toml            # Netlify config (headers, cache)
+├── .gitignore
+└── assets/
+    ├── favicon.png
+    ├── full-logo.png
+    ├── short-logo.png
+    └── animation.gif
 ```
 
-Adhere to this structure. If a file that clearly belongs elsewhere is missing, create it in its proper place; do not scatter code.
+Only add new files/folders when the work actually requires them. Do not scaffold empty directories or invent structure ahead of need. When adding a new concern (styles, scripts, locales, additional pages), place it in a sensibly named folder at the root and document it here in the same commit.
 
 ## Design system
 
