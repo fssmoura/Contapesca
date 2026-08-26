@@ -9,7 +9,10 @@ desktop.ini
 
 # Netlify
 .netlify/
-.netlify-token
+
+# Secrets
+.env
+.env.*
 
 # Node (in case we add tooling later)
 node_modules/
