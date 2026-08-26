@@ -1,0 +1,15 @@
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Netlify
+.netlify/
+
+# Node (in case we add tooling later)
+node_modules/
+npm-debug.log*
