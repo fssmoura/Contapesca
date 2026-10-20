@@ -1,0 +1,23 @@
+.map {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  background: #1b1f45;
+  color: var(--ink);
+}
+
+.map-pin {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 2px solid var(--yellow);
+}
+
+.map-pin img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}

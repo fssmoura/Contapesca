@@ -1,0 +1,47 @@
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: clamp(40px, 6vw, 72px);
+  border-top: 1px solid var(--line);
+}
+
+.stats li {
+  display: grid;
+  gap: 6px;
+  align-content: start;
+  padding: 28px 24px 0 0;
+}
+
+.stats li + li {
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
+}
+
+.stat-value {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+@media (max-width: 767px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats li,
+  .stats li + li {
+    padding: 20px 16px 20px 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stats li:nth-child(even) {
+    padding-left: 16px;
+    border-left: 1px solid var(--line);
+  }
+}

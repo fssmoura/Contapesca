@@ -1,0 +1,75 @@
+.svc-list {
+  display: grid;
+  align-content: start;
+}
+
+.svc-tab {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: 22px 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  letter-spacing: -0.03em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.svc-tab:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.svc-tab:hover,
+.svc-tab[aria-selected="true"] {
+  color: var(--ink);
+}
+
+.svc-tab::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.svc-tab[aria-selected="true"]::after {
+  transform: scaleX(1);
+}
+
+.svc-list.is-auto .svc-tab[aria-selected="true"]::after {
+  animation: svc-fill 10s linear forwards;
+}
+
+.services.is-paused .svc-tab::after {
+  animation-play-state: paused;
+}
+
+@keyframes svc-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.svc-num {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+}
+
+@media (max-width: 767px) {
+  .svc-list,
+  .svc-tab {
+    display: none;
+  }
+}

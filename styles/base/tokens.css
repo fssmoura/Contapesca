@@ -1,0 +1,24 @@
+:root {
+  --ink: #06080f;
+  --navy: #131634;
+  --blue: #4c6bcb;
+  --blue-light: #7899d6;
+  --line-blue: #479dea;
+  --yellow: #e8bd48;
+  --paper: #f6f4ee;
+  --white: #f8f9fa;
+  --tint-blue: #e4e9f6;
+  --tint-sand: #ebe5d9;
+  --muted: #5d6170;
+  --line: rgba(6, 8, 15, 0.12);
+  --line-dark: rgba(248, 249, 250, 0.14);
+  --radius: 2px;
+  --container: 1280px;
+  --gutter: clamp(20px, 4vw, 56px);
+  --fs-display: clamp(2.75rem, 6.5vw, 5.75rem);
+  --fs-h2: clamp(2rem, 4vw, 3.25rem);
+  --fs-lead: clamp(1.25rem, 2vw, 1.75rem);
+  --fs-body: 1rem;
+  --fs-micro: 0.75rem;
+  --font: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}

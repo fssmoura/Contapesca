@@ -31,30 +31,39 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 ├── AGENTS.md
 ├── .gitignore
 ├── netlify.toml            # Netlify config (headers, cache rules)
-├── index.html              # Home page
-├── contactos.html          # Contact page
+├── index.html              # Single-page landing (hero, mission, services, new office, contact, footer)
+├── privacidade.html        # Política de Privacidade / Privacy Policy (generated-style legal page, [data-legal])
+├── termos.html             # Termos de Uso / Terms of Use
 ├── styles/
-│   └── main.css            # All styles (tokens, base, components, pages)
+│   ├── main.css            # Imports only (order matters)
+│   ├── base/               # tokens, reset, typography, layout (+ .ph), motion (reveal, reduced motion)
+│   ├── components/         # buttons, header, cards, carousel, tabs, map, stats
+│   └── sections/           # hero, about, services, office, contact, footer
 ├── scripts/
-│   └── main.js             # Nav, language toggle, form validation, reveal
+│   ├── main.js             # Imports modules and calls init functions only
+│   ├── i18n/               # pt.js, en.js (dictionaries), legal-pt.js / legal-en.js (legal pages only, merged when [data-legal] exists), index.js (setLang, initI18n)
+│   ├── modules/            # menu, carousel, tabs, reveal, map, hero-lines, year
+│   └── utils/motion.js     # prefers-reduced-motion / hover helpers
 └── assets/
     ├── favicon.png
     ├── full-logo.png       # Icon only (yellow interlocking brackets)
     ├── short-logo.png      # Icon + "ContaPesca" wordmark
-    └── icon-lines.svg      # Line-art version of the icon, used in the hero animation
+    ├── office-front.jpg / office-interior.jpg / office-desk.jpg   # New office photos (hero carousel)
+    ├── pedro-moura.jpg                          # Owner portrait
+    ├── svc-*.jpg                                # Service tab photos
+    └── icon-lines.svg      # Line-art version of the icon, path copied into scripts/modules/hero-lines.js (tiled wave pattern in the hero, CSS-animated, no mouse interaction)
 ```
 
-**Rule:** do not invent folders or split files preemptively. Split `main.css` or `main.js` into smaller files only when they grow past ~500 lines or when a page introduces genuinely page-specific logic worth isolating. Update this section whenever the layout changes.
+**Rule:** one concern per file. Each component keeps its own media queries in its own CSS file; new CSS goes in the matching `components/` or `sections/` file and gets an `@import` in `main.css`. JS is native ES modules (`<script type="module">`, served over HTTP); each module exports an `init*` called from `main.js`. Do not create folders or files without a concrete need. Legal pages use styles/sections/legal.css. Update this section whenever the layout changes.
 
-## Brand
+## Brand and design
 
-- Background: `#0c0e13`
-- Yellow accent: `#dbaa35`
-- Blue primary: `#558fd5`
-- Logo assets in `/assets`.
-
-Additional design tokens (typography, spacing, elevations) will be defined once we start building the real pages.
-
+- Flat colours only (no gradients, glow, blur). Editorial / Swiss-inspired look, deliberately not generic "AI" styling.
+- Tokens live in :root in styles/base/tokens.css: --ink #06080f, --navy #131634, --blue #4c6bcb, --yellow #e8bd48 (dark backgrounds / markers only), --paper #f6f4ee, --tint-blue, --tint-sand, --muted.
+- Font: Instrument Sans (Google Fonts), display sizes in weight 400. Corners --radius: 2px; only pills and round buttons are rounded.
+- Dark hero with an overlapping card row, off-white body, navy band for the new office section, black footer.
+- No decorative dash ornaments and no slogans. The office map uses Leaflet (CDN) + OpenStreetMap tiles with a single custom marker (no API key).
+- Unknown facts are visible [placeholders] marked with data-placeholder; search for it to list what is still missing.
 ## Coding conventions
 
 ### HTML
@@ -89,13 +98,19 @@ Additional design tokens (typography, spacing, elevations) will be defined once 
 - No blocking third-party scripts.
 - Target Lighthouse ≥ 95 across the board.
 
-## Contact form
+## Contact
 
-- Handled by Netlify Forms.
-- `<form name="contacto" data-netlify="true">` + hidden `form-name` input.
-- Honeypot field (`bot-field`) for spam.
-- Client-side validation is UX-only; Netlify does the real validation.
+- A single mailto: button (no form, no Netlify Forms). Subject follows the active language.
 
+## Internationalisation
+
+- Portuguese is the default and is written directly in the HTML. English lives in scripts/i18n/en.js (PT keys in scripts/i18n/pt.js, kept in sync).
+- Elements use data-i18n="key" (text) and data-i18n-aria="key" (aria-label). setLang() swaps them, updates <html lang>, title and meta description.
+- Language order: ?lang= query, localStorage('cp-lang'), then pt. No browser auto-detection.
+
+## Local preview
+
+- Run python -m http.server 5500 from the repo root and open http://localhost:5500 (add ?lang=en for English).
 ## Deployment
 
 - Host: Netlify (free plan), team `contapesca-unipessoal`.
@@ -150,3 +165,7 @@ Additional design tokens (typography, spacing, elevations) will be defined once 
 - No analytics unless explicitly requested (and if added, privacy-friendly only).
 - No cookie banner unless tracking requires one.
 - No blog in v1.
+
+## Review lock
+
+While under review the site is password-protected by the Netlify Edge Function netlify/edge-functions/auth.js (HTTP Basic Auth; the password comes from the SITE_PASSWORD env var set in the Netlify UI and is never committed). It fails closed with 503 if the variable is missing. To remove the lock: delete netlify/edge-functions/auth.js and the robots noindex meta tag in index.html, privacidade.html and termos.html.

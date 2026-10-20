@@ -1,0 +1,104 @@
+.hero {
+  position: relative;
+  background: var(--ink);
+  color: var(--white);
+  padding-top: 140px;
+  overflow-x: clip;
+  display: flow-root;
+}
+
+.hero-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.35;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(ellipse 80% 90% at 100% 0%, #000 0%, rgba(0, 0, 0, 0.5) 45%, transparent 85%);
+  mask-image: radial-gradient(ellipse 80% 90% at 100% 0%, #000 0%, rgba(0, 0, 0, 0.5) 45%, transparent 85%);
+}
+
+.hero-lines use {
+  fill: none;
+  stroke: var(--line-blue);
+  stroke-width: 1;
+}
+
+.hl-tile {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hl-wave 7s ease-in-out infinite alternate;
+}
+
+.hero-lines.is-paused .hl-tile {
+  animation-play-state: paused;
+}
+
+@keyframes hl-wave {
+  from {
+    transform: translateY(-6px) rotate(-2deg);
+  }
+
+  to {
+    transform: translateY(6px) rotate(2deg);
+  }
+}
+
+.hero-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 24px;
+  padding-bottom: 72px;
+}
+
+.hero-main {
+  grid-column: 1 / span 8;
+  padding-left: 36px;
+}
+
+.hero-side {
+  grid-column: 9 / span 4;
+  align-self: end;
+  display: grid;
+  gap: 16px;
+}
+
+.hero-side .micro {
+  color: #b9bfd0;
+}
+
+.lead-sm {
+  font-size: 1.0625rem;
+  color: #d6dae6;
+  max-width: 34ch;
+}
+
+@media (max-width: 1024px) {
+  .hero-main,
+  .hero-side {
+    grid-column: 1 / -1;
+  }
+
+  .hero-side {
+    margin-top: 40px;
+    padding-left: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero-main,
+  .hero-side {
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hl-tile {
+    animation: none;
+  }
+}

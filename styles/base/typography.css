@@ -1,0 +1,30 @@
+.micro {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 500;
+}
+
+.display,
+.h2,
+.statement {
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+.display {
+  font-size: var(--fs-display);
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+}
+
+.marker {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 10px;
+  background: var(--yellow);
+}

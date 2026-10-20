@@ -1,0 +1,110 @@
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  color: var(--white);
+}
+
+.site-header-solid {
+  position: relative;
+  background: var(--ink);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  padding-block: 22px;
+}
+
+.brand img {
+  height: 28px;
+  width: auto;
+}
+
+.nav {
+  margin-left: auto;
+}
+
+.nav ul {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 0.9375rem;
+}
+
+.nav a:hover,
+.lang button:hover {
+  color: var(--yellow);
+}
+
+.lang {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 32px;
+  font-size: var(--fs-micro);
+  letter-spacing: 0.14em;
+}
+
+.lang button {
+  background: none;
+  border: 0;
+  padding: 6px 2px;
+  color: #b9bfd0;
+  letter-spacing: inherit;
+}
+
+.lang button[aria-pressed="true"] {
+  color: var(--white);
+  box-shadow: inset 0 -1px 0 var(--yellow);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: 1px solid var(--line-dark);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .menu-btn {
+    display: inline-block;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    background: var(--ink);
+    padding: 8px var(--gutter) 20px;
+    border-bottom: 1px solid var(--line-dark);
+  }
+
+  .nav.is-open {
+    display: block;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .nav a {
+    display: block;
+    padding: 14px 0;
+    border-top: 1px solid var(--line-dark);
+  }
+
+  .lang {
+    margin-left: 20px;
+  }
+}

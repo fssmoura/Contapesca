@@ -3,46 +3,297 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>ContaPesca — em construção</title>
-    <link rel="icon" href="/assets/favicon.png" />
-    <style>
-      html,
-      body {
-        margin: 0;
-        height: 100%;
-        background: #0c0e13;
-        color: #e8ebf0;
-        font-family: system-ui, sans-serif;
-        display: grid;
-        place-items: center;
-        text-align: center;
-      }
-
-      p {
-        color: #9aa1b0;
-      }
-
-      a {
-        color: #558fd5;
-      }
-
-      /* Hide Netlify's injected "Powered by Netlify" badge */
-      #nl-badge-frame,
-      #nl-hud-frame {
-        display: none !important;
-      }
-    </style>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>ContaPesca - Contabilidade, Consultadoria e Gestão</title>
+    <meta
+      name="description"
+      content="Apostamos na personalização e reconhecemos a importância de compreender profundamente o que cada cliente procura."
+    />
+    <meta name="theme-color" content="#06080f" />
+    <meta property="og:title" content="ContaPesca - Contabilidade, Consultadoria e Gestão" />
+    <meta
+      property="og:description"
+      content="Apostamos na personalização e reconhecemos a importância de compreender profundamente o que cada cliente procura."
+    />
+    <meta property="og:image" content="assets/short-logo.png" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://contapesca.pt/" />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles/main.css" />
   </head>
-
   <body>
-    <main>
-      <img src="/assets/full-logo.png" alt="ContaPesca" width="560" />
-      <p>Site novo a chegar em breve.</p>
-      <p>
-        <a href="mailto:contapesca.unipessoal@gmail.com"
-          >contapesca.unipessoal@gmail.com</a
+    <a class="skip-link" href="#conteudo" data-i18n="skip">Saltar para o conteúdo</a>
+
+    <header class="site-header" id="topo">
+      <div class="container header-inner">
+        <a class="brand" href="#topo" aria-label="ContaPesca">
+          <img src="assets/short-logo.png" alt="ContaPesca" width="140" height="28" />
+        </a>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav"
+          data-i18n="menu"
         >
-      </p>
+          Menu
+        </button>
+        <nav class="nav" id="nav" aria-label="Principal">
+          <ul>
+            <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="#escritorio" data-i18n="nav.office">Escritório</a></li>
+            <li><a href="#contactos" data-i18n="nav.contact">Contactos</a></li>
+          </ul>
+        </nav>
+        <div class="lang" role="group" aria-label="Idioma / Language">
+          <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="hero" aria-labelledby="hero-title">
+        <svg class="hero-lines" aria-hidden="true" focusable="false"></svg>
+        <div class="container hero-grid">
+          <div class="hero-main">
+            <h1 id="hero-title" class="display" data-i18n="hero.title">Contabilidade, Consultadoria e Gestão</h1>
+          </div>
+          <div class="hero-side">
+            <p class="micro" data-i18n="hero.since">(Desde 2019)</p>
+            <p class="lead-sm" data-i18n="hero.lead">
+              Apostamos na personalização e reconhecemos a importância de compreender profundamente o que cada cliente procura.
+            </p>
+          </div>
+        </div>
+
+        <div class="container cards">
+          <article class="card card-tint">
+            <span class="badge"><img src="assets/favicon.png" alt="" width="28" height="28" /></span>
+            <h2 class="card-title" data-i18n="card.accounting">Contabilidade</h2>
+            <a class="pill pill-dark" href="#servicos" aria-label="Contabilidade - ver serviços" data-i18n-aria="card.accounting.aria">
+              <span data-i18n="card.more">Ver serviços</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+            </a>
+          </article>
+          <div class="card card-photo carousel" role="group" aria-roledescription="carousel" aria-label="Escritório" data-i18n-aria="carousel.aria">
+            <img class="slide is-active" data-pos="low" src="assets/office-front.jpg" alt="Fachada do novo escritório ContaPesca, na Douro Marina" data-i18n-alt="office.photo" width="1600" height="1200" />
+            <img class="slide" src="assets/office-interior.jpg" alt="Interior do novo escritório ContaPesca" data-i18n-alt="office.photo2" width="1600" height="1200" />
+            <img class="slide" src="assets/office-desk.jpg" alt="Sala de reuniões do escritório ContaPesca" data-i18n-alt="office.photo3" width="1600" height="1200" />
+            <p class="micro carousel-caption" aria-live="polite"><span class="cap" data-i18n="carousel.cap1">Fachada</span><span class="cap" data-i18n="carousel.cap2" hidden>Interior</span><span class="cap" data-i18n="carousel.cap3" hidden>Interior</span></p>
+            <div class="carousel-bar">
+              <span class="carousel-count"><span data-count>01</span> / 03</span>
+              <div class="segs">
+                <button type="button" class="seg is-active" aria-label="Foto 1" data-i18n-aria="carousel.seg1" aria-current="true"></button>
+                <button type="button" class="seg" aria-label="Foto 2" data-i18n-aria="carousel.seg2"></button>
+                <button type="button" class="seg" aria-label="Foto 3" data-i18n-aria="carousel.seg3"></button>
+              </div>
+              <div class="carousel-nav">
+                <button type="button" class="carousel-btn" data-prev aria-label="Foto anterior" data-i18n-aria="carousel.prev">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+                </button>
+                <button type="button" class="carousel-btn" data-next aria-label="Foto seguinte" data-i18n-aria="carousel.next">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <figure class="card card-quote">
+            <blockquote class="quote-text" data-placeholder data-i18n="card.quote">“[Citação de cliente]”</blockquote>
+            <figcaption class="quote-author">
+              <span class="ph-avatar" data-placeholder aria-hidden="true"></span>
+              <span class="micro" data-placeholder data-i18n="card.author">[Nome], [Cargo / Empresa]</span>
+            </figcaption>
+            <span class="quote-mark" aria-hidden="true">”</span>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-paper section-after-cards section-end-tight" id="missao" aria-labelledby="missao-label">
+        <div class="container grid-12 reveal">
+          <h2 class="micro col-label" id="missao-label" data-i18n="mission.label">A nossa missão</h2>
+          <p class="statement" data-i18n="mission.text">
+            Apostamos na personalização e reconhecemos a importância de compreender profundamente o que cada cliente procura, quais são os seus objetivos, desafios e preferências, permitindo-nos assim desenvolver estratégias e garantir que o resultado final seja verdadeiramente satisfatório.
+          </p>
+        </div>
+        <div class="container reveal">
+          <div class="about">
+            <div class="about-person">
+              <img src="assets/pedro-moura.jpg" alt="Pedro Moura" width="400" height="400" loading="lazy" />
+              <h3 class="about-name">Pedro Moura</h3>
+              <p class="micro" data-i18n="about.role">Fundador</p>
+              <a class="link-u" href="https://www.linkedin.com/in/pedrojfmoura/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            </div>
+            <div class="about-body">
+              <p class="micro" data-i18n="about.label">Quem somos</p>
+              <p data-i18n="about.text">Carreira profissional desenvolvida essencialmente na área financeira, com forte experiência operacional e de apoio a atividades industriais, reporting e análise de custos (Contabilidade de Gestão), bom conhecimento de SAP e de contas consolidadas. Experiência em Compras, através de projetos de implementação e deflação, gestão e implementação de parcerias e consolidação da estratégia corporativa.</p>
+            </div>
+          </div>
+          <ul class="stats">
+            <li><span class="stat-value">35+</span><span class="stat-label" data-i18n="stats.1.l">anos de experiência</span></li>
+            <li><span class="stat-value">24</span><span class="stat-label" data-i18n="stats.2.l">anos na GE Industrial Solutions</span></li>
+            <li><span class="stat-value">11</span><span class="stat-label" data-i18n="stats.3.l">anos na Docapesca - contabilidade</span></li>
+            <li><span class="stat-value">2</span><span class="stat-label" data-i18n="stats.4.l">mercados: Portugal e Espanha</span></li>
+          </ul>
+          <p class="about-summary" data-i18n="about.summary">Percurso em Docapesca, Elastron e GE Industrial Solutions - contabilidade, controlo financeiro e compras.</p>
+        </div>
+      </section>
+
+      <section class="section section-paper section-rule" id="servicos" aria-labelledby="servicos-title">
+        <div class="container reveal">
+          <div class="services-head">
+            <h2 id="servicos-title" class="h2" data-i18n="services.title">Os nossos serviços</h2>
+          </div>
+          <div class="services">
+            <div class="svc-list" role="tablist" aria-label="Serviços" data-i18n-aria="services.title">
+              <button class="svc-tab" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" type="button">
+                <span class="svc-num">01</span><span data-i18n="svc.1.title">Contabilidade</span>
+              </button>
+              <button class="svc-tab" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1" type="button">
+                <span class="svc-num">02</span><span data-i18n="svc.2.title">Consultadoria &amp; Gestão</span>
+              </button>
+              <button class="svc-tab" role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1" type="button">
+                <span class="svc-num">03</span><span data-i18n="svc.3.title">Clientes</span>
+              </button>
+            </div>
+            <div class="svc-panels">
+              <div class="svc-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
+                <img src="assets/svc-contabilidade.jpg" alt="" width="1280" height="794" loading="lazy" />
+                <h3 class="svc-title" data-i18n="svc.1.title">Contabilidade</h3>
+                <p data-i18n="svc.1.text">
+                  Se não tem o pessoal interno e o conhecimento necessários para tomar conta da sua contabilidade ou se simplesmente está muito ocupado e quer que alguém lhe liberte tempo ao tratar da sua contabilidade, prestamos o serviço que estava à procura.
+                </p>
+              </div>
+              <div class="svc-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
+                <img src="assets/svc-consultadoria.jpg" alt="" width="1280" height="794" loading="lazy" />
+                <h3 class="svc-title" data-i18n="svc.2.title">Consultadoria &amp; Gestão</h3>
+                <p data-i18n="svc.2.text">
+                  O nosso trabalho não se resume ao cumprimento das obrigações fiscais da sua empresa. Ajudamo-lo a planificar as suas atividades de negócio de forma a maximizar a redução de impostos e discutir consigo previamente as implicações das decisões de negócio em termos de fiscais.
+                </p>
+              </div>
+              <div class="svc-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
+                <img src="assets/svc-clientes.jpg" alt="" width="1280" height="794" loading="lazy" />
+                <h3 class="svc-title" data-i18n="svc.3.title">Clientes</h3>
+                <p data-i18n="svc.3.text">
+                  Trabalhamos pelo rigor, qualidade e personalização na prestação dos nossos serviços suportando sempre o empresário nas suas decisões, procurando os suportes financeiros ajustados encontrar a tranquilidade necessária à tomada de decisões.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-navy" id="escritorio" aria-labelledby="escritorio-title">
+        <div class="container reveal">
+          <p class="micro"><span class="marker" aria-hidden="true"></span><span data-i18n="office.label">Novo escritório</span></p>
+          <h2 id="escritorio-title" class="h2 office-title" data-i18n="office.title">Agora também nos pode visitar.</h2>
+          <div class="office-grid">
+            <div class="map" id="map" role="region" aria-label="Mapa: localização do escritório" data-i18n-aria="office.maparia"></div>
+            <div>
+              <dl class="office-dl">
+                <div>
+                  <dt data-i18n="office.address.k">Morada</dt>
+                  <dd><span data-i18n="office.address.v">Douro Marina, Rua da Praia, Vila Nova de Gaia</span></dd>
+                </div>
+                <div>
+                  <dt data-i18n="office.hours.k">Horário</dt>
+                  <dd class="hours">
+                    <span data-i18n="office.hours.d1">Segunda a sexta</span>
+                    <span data-i18n="office.hours.t1">09h00 - 12h30</span>
+                    <span data-i18n="office.hours.t2">14h00 - 17h30</span>
+                    <span data-i18n="office.hours.d2">Sábado: só por marcação</span>
+                  </dd>
+                </div>
+              </dl>
+              <a class="pill pill-yellow" href="https://maps.app.goo.gl/GhCJjUy7qyUptEx49" target="_blank" rel="noopener">
+                <span data-i18n="office.map">Ver no Google Maps</span>
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-paper" id="contactos" aria-labelledby="contactos-title">
+        <div class="container reveal">
+          <p class="micro" data-i18n="contact.label">Ainda tem dúvidas?</p>
+          <h2 id="contactos-title" class="h2 contact-title" data-i18n="contact.title">
+            Entre em contacto connosco - iremos responder o mais atempadamente possível!
+          </h2>
+          <a class="btn-email" id="mail-btn" data-mailto href="mailto:contapesca.unipessoal@gmail.com?subject=Pedido%20de%20contacto">
+            <span class="btn-email-text">
+              <span class="micro" data-i18n="contact.btn">Enviar email</span>
+              <span class="btn-email-addr">contapesca.unipessoal@gmail.com</span>
+            </span>
+            <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+          </a>
+        </div>
+      </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <img src="assets/short-logo.png" alt="ContaPesca" width="140" height="28" />
+        <div class="footer-grid">
+          <div>
+            <p class="footer-title" data-i18n="footer.title">Contabilidade, Consultadoria e Gestão</p>
+          </div>
+          <div>
+            <h2 class="micro" data-i18n="footer.links">Links úteis</h2>
+            <ul class="footer-list">
+              <li><a href="https://www.portaldasfinancas.gov.pt" target="_blank" rel="noopener">Portal das Finanças</a></li>
+              <li><a href="https://www.seg-social.pt" target="_blank" rel="noopener">Segurança Social</a></li>
+              <li><a href="https://faturas.portaldasfinancas.gov.pt" target="_blank" rel="noopener">e-Fatura</a></li>
+              <li><a href="https://www.livroreclamacoes.pt/inicio" target="_blank" rel="noopener" data-i18n="footer.complaints">Livro de Reclamações</a></li>
+              <li><a href="privacidade.html" data-i18n="footer.privacy">Política de Privacidade</a></li>
+              <li><a href="termos.html" data-i18n="footer.terms">Termos de Uso</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2 class="micro" data-i18n="footer.contacts">Contactos</h2>
+            <ul class="footer-list">
+              <li><a href="tel:+351938450527">+351 938 450 527</a></li>
+              <li><a href="mailto:contapesca.unipessoal@gmail.com">contapesca.unipessoal@gmail.com</a></li>
+            </ul>
+            <div class="footer-actions">
+              <a class="round" href="https://www.linkedin.com/company/contapesca-contabilidade-e-consultadoria-unipessoal-lda" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4v11H3zM9.5 9.75h3.8v1.6h.1c.5-1 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6v5.3h-4v-4.8c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.9h-4z" /></svg>
+              </a>
+              <a class="round" href="#topo" aria-label="Voltar ao topo" data-i18n-aria="footer.top">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bar">
+          <p>© <span id="year">2026</span> CONTAPESCA - Contabilidade e Consultadoria, Unipessoal Lda.</p>
+          <p class="micro">
+            <a href="privacidade.html" data-i18n="footer.privacy">Política de Privacidade</a>
+            <a href="termos.html" data-i18n="footer.terms">Termos de Uso</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script type="module" src="scripts/main.js"></script>
   </body>
 </html>
