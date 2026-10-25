@@ -68,8 +68,35 @@
 }
 
 @media (max-width: 767px) {
-  .svc-list,
   .svc-tab {
-    display: none;
+    align-items: center;
+    padding: 18px 0;
+    font-size: 1.375rem;
+    color: var(--ink);
+  }
+
+  .svc-tab::after {
+    content: "+";
+    position: static;
+    height: auto;
+    margin-left: auto;
+    background: none;
+    transform: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .svc-tab[aria-expanded="true"]::after {
+    content: "\2212";
+  }
+
+  .svc-tab:last-child {
+    border-bottom: 0;
+  }
+
+  .svc-tab:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
   }
 }

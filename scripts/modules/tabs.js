@@ -9,6 +9,7 @@ export const initTabs = () => {
 
   const mobile = window.matchMedia("(max-width: 767px)");
   let current = 0;
+  list.dataset.label = list.getAttribute("aria-label");
 
   const restart = () => {
     list.classList.remove("is-auto");
@@ -17,14 +18,37 @@ export const initTabs = () => {
     list.classList.add("is-auto");
   };
 
-  const select = (index, focus) => {
-    current = index;
+  const render = () => {
+    const accordion = mobile.matches;
+    if (accordion) {
+      list.removeAttribute("role");
+      list.removeAttribute("aria-label");
+    } else {
+      list.setAttribute("role", "tablist");
+      list.setAttribute("aria-label", list.dataset.label);
+    }
     tabs.forEach((tab, i) => {
-      const on = i === index;
-      tab.setAttribute("aria-selected", String(on));
-      tab.tabIndex = on ? 0 : -1;
+      const on = i === current;
+      if (accordion) {
+        tab.removeAttribute("role");
+        tab.removeAttribute("aria-selected");
+        tab.setAttribute("aria-expanded", String(on));
+        tab.tabIndex = 0;
+        panels[i].setAttribute("role", "region");
+      } else {
+        tab.setAttribute("role", "tab");
+        tab.removeAttribute("aria-expanded");
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panels[i].setAttribute("role", "tabpanel");
+      }
       panels[i].hidden = !on;
     });
+  };
+
+  const select = (index, focus) => {
+    current = mobile.matches && index === current ? -1 : index;
+    render();
     if (focus) tabs[index].focus();
     restart();
   };
@@ -32,6 +56,7 @@ export const initTabs = () => {
   tabs.forEach((tab, i) => {
     tab.addEventListener("click", () => select(i));
     tab.addEventListener("keydown", (e) => {
+      if (mobile.matches) return;
       const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
       if (e.key === "Home") {
         e.preventDefault();
@@ -45,7 +70,7 @@ export const initTabs = () => {
       }
     });
     tab.addEventListener("animationend", (e) => {
-      if (e.animationName === "svc-fill" && i === current) select((current + 1) % tabs.length);
+      if (e.animationName === "svc-fill" && i === current && !mobile.matches) select((current + 1) % tabs.length);
     });
   });
 
@@ -54,7 +79,11 @@ export const initTabs = () => {
   wrap.addEventListener("mouseleave", () => setPaused(false));
   wrap.addEventListener("focusin", () => setPaused(true));
   wrap.addEventListener("focusout", () => setPaused(false));
-  mobile.addEventListener("change", restart);
+  mobile.addEventListener("change", () => {
+    if (current < 0) current = 0;
+    render();
+    restart();
+  });
   onMotionChange(restart);
-  select(0);
+  render();
 };
