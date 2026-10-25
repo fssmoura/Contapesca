@@ -37,7 +37,7 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 ├── styles/
 │   ├── main.css            # Imports only (order matters)
 │   ├── base/               # tokens, reset, typography, layout (+ .ph), motion (reveal, reduced motion)
-│   ├── components/         # buttons, header, cards, carousel, tabs, map, stats
+│   ├── components/         # buttons, header, cards, carousel, tabs, map, stats, netlify-badge (hides Netlify's injected badge)
 │   └── sections/           # hero, about, services, office, contact, footer
 ├── scripts/
 │   ├── main.js             # Imports modules and calls init functions only
