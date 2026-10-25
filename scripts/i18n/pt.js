@@ -32,7 +32,7 @@ export default {
   "office.hours.k": "Horário",
   "office.map": "Ver no Google Maps",
   "contact.label": "Ainda tem dúvidas?",
-  "contact.title": "Entre em contacto connosco - iremos responder o mais atempadamente possível!",
+  "contact.title": "Entre em contacto connosco, iremos responder o mais rápido possível - obrigado!",
   "contact.btn": "Enviar email",
   "contact.subject": "Pedido de contacto",
   "footer.title": "Contabilidade, Consultadoria e Gestão",
@@ -40,6 +40,7 @@ export default {
   "footer.contacts": "Contactos",
   "footer.top": "Voltar ao topo",
   "footer.privacy": "Política de Privacidade",
+  "footer.calendar": "Calendário fiscal",
   "footer.terms": "Termos de Uso",
   "meta.title": "ContaPesca - Contabilidade, Consultadoria e Gestão",
   "meta.desc": "Apostamos na personalização e reconhecemos a importância de compreender profundamente o que cada cliente procura.",
@@ -68,5 +69,4 @@ export default {
   "office.hours.t2": "14:00 - 17:30",
   "office.hours.d2": "Sábado",
   "office.hours.t3": "Consoante agendamento",
-  "footer.complaints": "Livro de Reclamações",
 };

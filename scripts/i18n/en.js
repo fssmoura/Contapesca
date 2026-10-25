@@ -32,7 +32,7 @@ export default {
   "office.hours.k": "Opening hours",
   "office.map": "View on Google Maps",
   "contact.label": "Still have questions?",
-  "contact.title": "Get in touch - we'll reply as soon as possible!",
+  "contact.title": "Get in touch, we'll reply as soon as possible - thank you!",
   "contact.btn": "Send an email",
   "contact.subject": "Contact request",
   "footer.title": "Accounting, Consulting and Management",
@@ -40,6 +40,7 @@ export default {
   "footer.contacts": "Contact",
   "footer.top": "Back to top",
   "footer.privacy": "Privacy Policy",
+  "footer.calendar": "Tax calendar",
   "footer.terms": "Terms of Use",
   "meta.title": "ContaPesca - Accounting, Consulting and Management",
   "meta.desc": "We focus on personalisation and recognise how important it is to deeply understand what each client is looking for.",
@@ -68,5 +69,4 @@ export default {
   "office.hours.t2": "14:00 - 17:30",
   "office.hours.d2": "Saturday",
   "office.hours.t3": "By appointment",
-  "footer.complaints": "Complaints Book",
 };

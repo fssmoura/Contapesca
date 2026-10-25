@@ -89,11 +89,16 @@
   letter-spacing: -0.01em;
 }
 
-.about-summary {
-  margin-top: 32px;
-  margin-bottom: 40px;
+.about-body .about-summary {
+  margin-top: 8px;
   color: var(--muted);
   font-size: 0.9375rem;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+
+.about + .stats {
+  margin-bottom: 40px;
 }
 
 @media (max-width: 1024px) {
