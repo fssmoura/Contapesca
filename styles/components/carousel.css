@@ -17,8 +17,8 @@
   opacity: 1;
 }
 
-.slide[data-pos="low"] {
-  object-position: center 60%;
+.slide[data-pos="front"] {
+  object-position: center 45%;
 }
 
 .carousel-caption {
