@@ -101,6 +101,16 @@
   margin-bottom: 40px;
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+  .about-person {
+    grid-column: 1 / span 5;
+  }
+
+  .about-body {
+    grid-column: 6 / span 7;
+  }
+}
+
 @media (max-width: 1024px) {
   .col-label,
   .statement {
@@ -114,15 +124,21 @@
 
 @media (max-width: 767px) {
   .about {
-    row-gap: 28px;
+    row-gap: 16px;
   }
 
-  .about-person,
   .about-body {
+    display: contents;
+  }
+
+  .about-body > *,
+  .about-person {
     grid-column: 1 / -1;
   }
 
   .about-person {
-    max-width: 260px;
+    order: 1;
+    max-width: 420px;
+    margin-top: 12px;
   }
 }

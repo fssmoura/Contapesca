@@ -76,7 +76,7 @@
 }
 
 .btn-email-addr {
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .btn-email:hover .btn-email-text .micro {
