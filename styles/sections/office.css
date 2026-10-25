@@ -1,11 +1,6 @@
-.office-title {
-  margin-top: 20px;
-  max-width: 16ch;
-}
-
 .office-grid {
   display: grid;
-  grid-template-columns: 7fr 5fr;
+  grid-template-columns: minmax(0, 400px) 1fr;
   gap: clamp(32px, 6vw, 96px);
   margin-top: clamp(40px, 6vw, 80px);
   align-items: start;
@@ -28,12 +23,18 @@
   border-bottom: 1px solid var(--line-dark);
 }
 
-.office-dl dt {
+.office-dl dt,
+.hours .hours-day {
   font-size: var(--fs-micro);
   text-transform: uppercase;
   letter-spacing: 0.14em;
   color: #b9bfd6;
   padding-top: 0.3em;
+}
+
+.hours .hours-day {
+  padding-top: 0;
+  margin-bottom: 4px;
 }
 
 .office-dl dd {
@@ -45,13 +46,17 @@
   gap: 2px;
 }
 
-.hours span:last-child {
+.hours .hours-gap {
   margin-top: 12px;
 }
 
 @media (max-width: 767px) {
   .office-grid {
     grid-template-columns: 1fr;
+  }
+
+  .map {
+    max-width: none;
   }
 
   .office-dl > div {

@@ -1,4 +1,4 @@
-const POSITION = [41.141568, -8.649931];
+const POSITION = [41.141640, -8.649732];
 
 export const initMap = () => {
   const el = document.getElementById("map");
@@ -10,6 +10,21 @@ export const initMap = () => {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(map);
+
+  if ("ResizeObserver" in window) {
+    let moved = false;
+    let resetting = false;
+    map.on("movestart", () => {
+      if (!resetting) moved = true;
+    });
+    new ResizeObserver(() => {
+      map.invalidateSize({ pan: false });
+      if (moved) return;
+      resetting = true;
+      map.setView(POSITION, 17, { animate: false });
+      resetting = false;
+    }).observe(el);
+  }
 
   const icon = L.divIcon({
     className: "map-pin",
