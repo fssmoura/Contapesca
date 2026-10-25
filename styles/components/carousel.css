@@ -45,12 +45,6 @@
   color: var(--white);
 }
 
-.carousel-count {
-  font-size: var(--fs-micro);
-  letter-spacing: 0.14em;
-  font-variant-numeric: tabular-nums;
-}
-
 .segs {
   display: flex;
   gap: 6px;

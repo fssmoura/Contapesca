@@ -5,7 +5,6 @@ export const initCarousel = () => {
   if (!root) return;
   const slides = Array.from(root.querySelectorAll(".slide"));
   const segs = Array.from(root.querySelectorAll(".seg"));
-  const count = root.querySelector("[data-count]");
   const caps = Array.from(root.querySelectorAll(".cap"));
   const prev = root.querySelector("[data-prev]");
   const next = root.querySelector("[data-next]");
@@ -31,7 +30,6 @@ export const initCarousel = () => {
     caps.forEach((c, i) => {
       c.hidden = i !== current;
     });
-    if (count) count.textContent = String(current + 1).padStart(2, "0");
     restartFill();
   };
 
