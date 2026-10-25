@@ -48,7 +48,7 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
     ├── favicon.png
     ├── full-logo.png       # Icon only (yellow interlocking brackets)
     ├── short-logo.png      # Icon + "ContaPesca" wordmark
-    ├── office-front.jpg / office-interior.jpg / office-desk.jpg   # New office photos (hero carousel)
+    ├── office-front.jpg / office-meeting.jpg / office-meeting-close.jpg / office-entrance.jpg   # New office photos (hero carousel)
     ├── pedro-moura.jpg                          # Owner portrait
     ├── svc-*.jpg                                # Service tab photos
     └── icon-lines.svg      # Line-art version of the icon, path copied into scripts/modules/hero-lines.js (tiled wave pattern in the hero, CSS-animated, no mouse interaction)
@@ -56,14 +56,16 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 
 **Rule:** one concern per file. Each component keeps its own media queries in its own CSS file; new CSS goes in the matching `components/` or `sections/` file and gets an `@import` in `main.css`. JS is native ES modules (`<script type="module">`, served over HTTP); each module exports an `init*` called from `main.js`. Do not create folders or files without a concrete need. Legal pages use styles/sections/legal.css. Update this section whenever the layout changes.
 
+**Legal pages (privacidade.html, termos.html):** whenever their content changes, update the "Última atualização" / "Last updated" date to the date of the change, in the HTML and in both legal dictionaries (legal-pt.js / legal-en.js). Each page has its own key (privacidade.date, termos.date).
+
 ## Brand and design
 
-- Flat colours only (no gradients, glow, blur). Editorial / Swiss-inspired look, deliberately not generic "AI" styling.
+- Flat colours only (no gradients, glow; blur only on the translucent bands over photos: carousel bar, portrait caption). Editorial / Swiss-inspired look, deliberately not generic "AI" styling.
 - Tokens live in :root in styles/base/tokens.css: --ink #06080f, --navy #131634, --blue #4c6bcb, --yellow #e8bd48 (dark backgrounds / markers only), --paper #f6f4ee, --tint-blue, --tint-sand, --muted.
 - Font: Instrument Sans (Google Fonts), display sizes in weight 400. Corners --radius: 2px; only pills and round buttons are rounded.
 - Dark hero with an overlapping card row, off-white body, navy band for the new office section, black footer.
 - No decorative dash ornaments and no slogans. The office map uses Leaflet (CDN) + OpenStreetMap tiles with a single custom marker (no API key).
-- Unknown facts are visible [placeholders] marked with data-placeholder; search for it to list what is still missing.
+- Unknown facts are visible [placeholders] marked with data-placeholder; search for it to list what is still missing. Legal pages have none; only the homepage client quote and author remain.
 ## Coding conventions
 
 ### HTML
