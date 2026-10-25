@@ -8,14 +8,6 @@
   counter-reset: legal;
 }
 
-.legal-note {
-  margin-top: 28px;
-  padding: 12px 16px;
-  background: var(--tint-sand);
-  border-left: 3px solid var(--yellow);
-  font-size: 0.9375rem;
-}
-
 .legal-title {
   margin-top: 40px;
 }
