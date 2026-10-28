@@ -1,8 +1,8 @@
 export default {
   "skip": "Skip to content",
   "menu": "Menu",
-  "nav.services": "Services",
-  "nav.office": "Office",
+  "nav.about": "About us",
+  "nav.office": "Location",
   "nav.contact": "Contact",
   "hero.title": "Accounting, Consulting and Management",
   "hero.since": "Since 2019",

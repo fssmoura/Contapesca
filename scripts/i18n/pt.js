@@ -1,8 +1,8 @@
 export default {
   "skip": "Saltar para o conteúdo",
   "menu": "Menu",
-  "nav.services": "Serviços",
-  "nav.office": "Escritório",
+  "nav.about": "Sobre nós",
+  "nav.office": "Localização",
   "nav.contact": "Contactos",
   "hero.title": "Contabilidade, Consultadoria e Gestão",
   "hero.since": "Desde 2019",

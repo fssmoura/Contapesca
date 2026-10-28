@@ -142,3 +142,7 @@
     margin-top: 12px;
   }
 }
+
+#sobre {
+  scroll-margin-top: 48px;
+}
