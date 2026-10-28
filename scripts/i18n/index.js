@@ -28,6 +28,11 @@ export const setLang = (lang, persist = true) => {
     const value = dict[el.dataset.i18n];
     if (value !== undefined) el.textContent = value;
   });
+  // Only for trusted dictionary strings with inline <strong> markup.
+  document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+    const value = dict[el.dataset.i18nHtml];
+    if (value !== undefined) el.innerHTML = value;
+  });
   document.querySelectorAll("[data-i18n-aria]").forEach((el) => {
     const value = dict[el.dataset.i18nAria];
     if (value !== undefined) el.setAttribute("aria-label", value);

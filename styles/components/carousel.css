@@ -125,8 +125,19 @@
   color: var(--ink);
 }
 
-@media (max-width: 767px) {
-  .carousel {
-    min-height: 260px;
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .carousel-bar {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .seg {
+    width: 20px;
+  }
+
+  .carousel-btn {
+    width: 28px;
+    height: 28px;
   }
 }

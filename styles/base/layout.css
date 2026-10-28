@@ -46,14 +46,6 @@
   color: var(--muted);
 }
 
-.ph-avatar {
-  display: block;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: 1px dashed var(--muted);
-}
-
 @media (max-width: 1024px) {
   .section-after-cards {
     padding-top: calc(80px + 64px);

@@ -112,13 +112,35 @@
               </div>
             </div>
           </div>
-          <figure class="card card-quote">
-            <blockquote class="quote-text" data-placeholder data-i18n="card.quote">“[Citação de cliente]”</blockquote>
-            <figcaption class="quote-author">
-              <span class="ph-avatar" data-placeholder aria-hidden="true"></span>
-              <span class="micro" data-placeholder data-i18n="card.author">[Nome], [Cargo / Empresa]</span>
-            </figcaption>
-            <span class="quote-mark" aria-hidden="true">”</span>
+          <figure class="card card-quote" role="group" aria-roledescription="carousel" aria-label="Testemunhos de clientes" data-i18n-aria="quotes.aria">
+            <div class="quote-stack">
+              <div class="quote-item is-active">
+                <blockquote class="quote-text" data-i18n-html="quotes.1.text">Destacamos o <strong>profissionalismo</strong>, a <strong>disponibilidade</strong> e o <strong>acompanhamento próximo</strong>, que nos dão confiança para nos focarmos no crescimento do nosso negócio.</blockquote>
+                <figcaption class="quote-author">
+                  <span class="micro">Ana Monteiro Rodrigues</span>
+                  <span class="micro" data-i18n="quotes.1.role">Restaurante “Vapor”</span>
+                </figcaption>
+              </div>
+              <div class="quote-item">
+                <blockquote class="quote-text" data-i18n-html="quotes.2.text">Recomendamos a todas as empresas que procuram um <strong>parceiro de confiança</strong>, <strong>competente</strong> e <strong>comprometido</strong> com as necessidades dos seus clientes.</blockquote>
+                <figcaption class="quote-author">
+                  <span class="micro">Joana Marques</span>
+                  <span class="micro" data-i18n="quotes.2.role">Theartsalon - Instituto Beleza, Lda</span>
+                </figcaption>
+              </div>
+            </div>
+            <div class="quote-bar">
+              <div class="quote-nav">
+                <button type="button" class="quote-btn" data-prev aria-label="Testemunho anterior" data-i18n-aria="quotes.prev">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+                </button>
+                <span class="quote-count" aria-hidden="true"><span data-quote-current>1</span>/<span data-quote-total>2</span></span>
+                <button type="button" class="quote-btn" data-next aria-label="Testemunho seguinte" data-i18n-aria="quotes.next">
+                  <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+                </button>
+              </div>
+            </div>
+            <span class="quote-progress" aria-hidden="true"></span>
           </figure>
         </div>
       </section>
@@ -292,6 +314,7 @@
         </div>
       </div>
     </footer>
+
 
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

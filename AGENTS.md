@@ -42,7 +42,7 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 ├── scripts/
 │   ├── main.js             # Imports modules and calls init functions only
 │   ├── i18n/               # pt.js, en.js (dictionaries), legal-pt.js / legal-en.js (legal pages only, merged when [data-legal] exists), index.js (setLang, initI18n)
-│   ├── modules/            # menu, carousel, tabs, reveal, map, hero-lines, year
+│   ├── modules/            # menu, carousel, quotes, tabs, reveal, map, hero-lines, year
 │   └── utils/motion.js     # prefers-reduced-motion / hover helpers
 └── assets/
     ├── favicon.png
@@ -65,7 +65,7 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 - Font: Instrument Sans (Google Fonts), display sizes in weight 400. Corners --radius: 2px; only pills and round buttons are rounded.
 - Dark hero with an overlapping card row, off-white body, navy band for the new office section, black footer.
 - No decorative dash ornaments and no slogans. The office map uses Leaflet (CDN) + OpenStreetMap tiles with a single custom marker (no API key).
-- Unknown facts are visible [placeholders] marked with data-placeholder; search for it to list what is still missing. Legal pages have none; only the homepage client quote and author remain.
+- Unknown facts are visible [placeholders] marked with data-placeholder; search for it to list what is still missing. No placeholders remain; the homepage client testimonials are real quotes (PT verbatim as supplied, EN translation in en.js).
 ## Coding conventions
 
 ### HTML

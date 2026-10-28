@@ -8,7 +8,7 @@
 }
 
 .card {
-  min-height: 300px;
+  aspect-ratio: 1 / 1;
   border-radius: var(--radius);
   overflow: hidden;
 }
@@ -45,50 +45,192 @@
 }
 
 .card-quote {
+  --qp: 28px;
+  container-type: inline-size;
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 28px;
+  padding: var(--qp);
   background: var(--tint-sand);
   color: var(--ink);
 }
 
+.card-quote::before {
+  content: "\201C";
+  position: absolute;
+  top: 0;
+  left: 0.04em;
+  font-size: clamp(9rem, 60cqi, 14rem);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.quote-stack {
+  position: relative;
+  flex: 1;
+  display: grid;
+}
+
+.quote-item {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0s 0.4s;
+}
+
+.quote-item.is-active {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
 .quote-text {
-  font-size: 1.5rem;
-  font-weight: 500;
+  padding-top: 12cqi;
+  font-size: clamp(0.8125rem, 7.2cqi, 2rem);
+  font-weight: 400;
   letter-spacing: -0.02em;
-  line-height: 1.25;
+  line-height: 1.22;
+}
+
+.quote-text strong {
+  font-weight: 600;
 }
 
 .quote-author {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding-right: 52px;
+  display: grid;
+  gap: 2px;
+  min-height: 28px;
+  align-content: end;
+  padding-right: 92px;
+}
+
+.quote-author .micro:first-child {
+  font-weight: 600;
 }
 
 .quote-author .micro {
-  display: grid;
-  gap: 2px;
-  letter-spacing: 0.1em;
+  font-size: clamp(0.5625rem, 3cqi, 0.6875rem);
+  letter-spacing: 0.08em;
+  line-height: 1.35;
+  opacity: 0.75;
 }
 
-.quote-mark {
+.quote-bar {
   position: absolute;
-  right: 24px;
-  bottom: 24px;
+  right: var(--qp);
+  bottom: var(--qp);
+}
+
+.quote-nav {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.quote-count {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.quote-btn {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.quote-btn:hover {
+  opacity: 1;
+}
+
+.quote-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(6, 8, 15, 0.12);
+}
+
+.quote-progress::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: var(--ink);
-  color: var(--white);
-  font-size: 1.5rem;
-  line-height: 1;
-  padding-top: 8px;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.card-quote.is-auto .quote-progress::after {
+  animation: quote-fill 12s linear forwards;
+}
+
+.card-quote.is-paused .quote-progress::after {
+  animation-play-state: paused;
+}
+
+@keyframes quote-fill {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-item,
+  .quote-item.is-active {
+    transition: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .card-quote {
+    --qp: 16px;
+  }
+
+  .quote-text {
+    font-size: clamp(0.75rem, 6.6cqi, 2rem);
+  }
+
+  .quote-author {
+    min-height: 24px;
+    padding-right: 76px;
+  }
+
+  .quote-author .micro {
+    letter-spacing: 0.04em;
+  }
+
+  .quote-nav {
+    gap: 0;
+  }
+
+  .quote-count {
+    font-size: 0.625rem;
+  }
+
+  .quote-btn {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -104,6 +246,77 @@
   }
 
   .card {
-    min-height: 220px;
+    aspect-ratio: auto;
+  }
+
+  .card-tint {
+    container-type: inline-size;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .card-tint .card-title {
+    flex: 1;
+    font-size: 1.5rem;
+  }
+
+  .card-photo {
+    aspect-ratio: 16 / 9;
+  }
+
+  .card-quote {
+    --qp: 24px;
+    min-height: 240px;
+  }
+
+  .quote-text {
+    padding-top: 40px;
+    font-size: clamp(1.125rem, 6cqi, 1.375rem);
+  }
+
+  .quote-stack {
+    margin-bottom: 24px;
+  }
+
+  .quote-author {
+    min-height: 28px;
+    padding-right: 92px;
+  }
+
+  .quote-author .micro {
+    letter-spacing: 0.08em;
+  }
+
+  .quote-nav {
+    gap: 0;
+  }
+
+  .quote-count {
+    font-size: 0.75rem;
+  }
+
+  .quote-btn {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+@container (max-width: 420px) {
+  .card-tint .pill {
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
+  .card-tint .pill span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
 }
