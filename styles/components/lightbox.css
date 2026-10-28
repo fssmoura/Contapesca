@@ -1,0 +1,112 @@
+.carousel-zoom {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: zoom-in;
+}
+
+.carousel-zoom:focus-visible {
+  outline-offset: -4px;
+}
+
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+.lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(6, 8, 15, 0.96);
+  color: var(--white);
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
+  user-select: none;
+}
+
+.lightbox::backdrop {
+  background: transparent;
+}
+
+.lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-img {
+  max-width: calc(100vw - 160px);
+  max-height: calc(100dvh - 140px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  -webkit-user-drag: none;
+}
+
+.lightbox-img.is-dragging {
+  transition: none;
+}
+
+.lightbox-btn {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--white);
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.lightbox-btn:hover {
+  opacity: 1;
+}
+
+.lightbox :focus-visible {
+  outline-color: var(--yellow);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.lightbox-bar {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+}
+
+.lightbox-count {
+  min-width: 3ch;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .lightbox-img {
+    max-width: 100vw;
+    max-height: calc(100dvh - 160px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox-img {
+    transition: none;
+  }
+}

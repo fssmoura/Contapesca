@@ -94,6 +94,7 @@
             <img class="slide" src="assets/office-meeting.jpg" alt="Sala de reuniões do escritório ContaPesca" data-i18n-alt="office.photo2" width="1600" height="1200" loading="lazy" />
             <img class="slide" src="assets/office-meeting-close.jpg" alt="Sala de reuniões do escritório ContaPesca" data-i18n-alt="office.photo3" width="1600" height="1200" loading="lazy" />
             <img class="slide" src="assets/office-entrance.jpg" alt="Entrada do escritório com vista para a Douro Marina" data-i18n-alt="office.photo4" width="1600" height="1200" loading="lazy" />
+            <button type="button" class="carousel-zoom" data-zoom aria-label="Ampliar foto" data-i18n-aria="carousel.zoom"></button>
             <p class="micro carousel-caption" aria-live="polite"><span class="cap" data-i18n="carousel.cap1">Fachada</span><span class="cap" data-i18n="carousel.cap2" hidden>Interior</span><span class="cap" data-i18n="carousel.cap3" hidden>Interior</span><span class="cap" data-i18n="carousel.cap4" hidden>Interior</span></p>
             <div class="carousel-bar">
               <div class="segs">
@@ -315,6 +316,21 @@
       </div>
     </footer>
 
+    <dialog class="lightbox" aria-label="Fotos do escritório" data-i18n-aria="lightbox.aria">
+      <img class="lightbox-img" src="" alt="" />
+      <button type="button" class="lightbox-btn lightbox-close" data-close aria-label="Fechar" data-i18n-aria="lightbox.close">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+      </button>
+      <div class="lightbox-bar">
+        <button type="button" class="lightbox-btn" data-prev aria-label="Foto anterior" data-i18n-aria="carousel.prev">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+        </button>
+        <span class="lightbox-count" aria-live="polite"><span data-lb-current>1</span>/<span data-lb-total>4</span></span>
+        <button type="button" class="lightbox-btn" data-next aria-label="Foto seguinte" data-i18n-aria="carousel.next">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5" /></svg>
+        </button>
+      </div>
+    </dialog>
 
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"

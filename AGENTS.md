@@ -37,12 +37,12 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 ├── styles/
 │   ├── main.css            # Imports only (order matters)
 │   ├── base/               # tokens, reset, typography, layout (+ .ph), motion (reveal, reduced motion)
-│   ├── components/         # buttons, header, cards, carousel, tabs, map, stats, netlify-badge (hides Netlify's injected badge)
+│   ├── components/         # buttons, header, cards, carousel, lightbox (office photo viewer, native <dialog>), tabs, map, stats, netlify-badge (hides Netlify's injected badge)
 │   └── sections/           # hero, about, services, office, contact, footer
 ├── scripts/
 │   ├── main.js             # Imports modules and calls init functions only
 │   ├── i18n/               # pt.js, en.js (dictionaries), legal-pt.js / legal-en.js (legal pages only, merged when [data-legal] exists), index.js (setLang, initI18n)
-│   ├── modules/            # menu, carousel, quotes, tabs, reveal, map, hero-lines, year
+│   ├── modules/            # menu, carousel, lightbox, quotes, tabs, reveal, map, hero-lines, year
 │   └── utils/motion.js     # prefers-reduced-motion / hover helpers
 └── assets/
     ├── favicon.png
