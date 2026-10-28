@@ -167,7 +167,3 @@ Do not introduce React, Vue, Svelte, TypeScript, Tailwind, Sass/Less, webpack, V
 - No analytics unless explicitly requested (and if added, privacy-friendly only).
 - No cookie banner unless tracking requires one.
 - No blog in v1.
-
-## Review lock
-
-While under review the site is password-protected by the Netlify Edge Function netlify/edge-functions/auth.js (HTTP Basic Auth; the password comes from the SITE_PASSWORD env var set in the Netlify UI and is never committed). It fails closed with 503 if the variable is missing. To remove the lock: delete netlify/edge-functions/auth.js and the robots noindex meta tag in index.html, privacidade.html and termos.html.
